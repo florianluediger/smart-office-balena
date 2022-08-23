@@ -1,0 +1,6 @@
+[submodule "zigbee2mqtt-balena"]
+	path = zigbee2mqtt-balena
+	url = git@github.com:florianluediger/zigbee2mqtt-balena.git
+[submodule "scd30-to-mqtt-balena"]
+	path = scd30-to-mqtt-balena
+	url = git@github.com:florianluediger/scd30-to-mqtt-balena.git
