@@ -1,0 +1,27 @@
+version: '2.4'
+volumes:
+  scd30-data:
+  zigbee2mqtt-data:
+services:
+  scd30:
+    build:
+      context: ./scd30-to-mqtt-balena
+    restart: always
+    network_mode: host
+    volumes:
+      - scd30-data:/usr/src/app/data
+    devices:
+      - "/dev/i2c-1:/dev/i2c-1"
+  zigbee2mqtt:
+    build:
+      context: ./zigbee2mqtt-balena
+    restart: always
+    network_mode: host
+    ports:
+      - "8080:8080"
+    volumes:
+      - zigbee2mqtt-data:/app/data
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    environment:
+      - TZ=Europe/Berlin
